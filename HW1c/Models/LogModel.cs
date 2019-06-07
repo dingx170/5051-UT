@@ -61,7 +61,10 @@ namespace HW1c.Models
             }
 
             // Don't update the ID, leave the old on in place
-            ID = data.ID;
+            if (ID == null)
+            {
+                ID = data.ID;
+            }
 
             // Update all the other fields
             EventType = data.EventType;
