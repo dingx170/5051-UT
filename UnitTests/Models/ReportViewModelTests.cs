@@ -23,10 +23,13 @@ namespace UnitTests.Models
         public void ReportViewModel_NumberOfUsers_Get_Default_Should_Pass()
         {
             // Arrange
+            var myTest = new ReportViewModel();
 
             // Act
+            var result = myTest.NumberOfUsers;
 
             // Assert
+            Assert.IsNotNull(result);
         }
 
         [TestMethod]
