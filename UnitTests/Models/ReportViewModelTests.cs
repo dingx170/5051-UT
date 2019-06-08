@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using HW1c.Models;
 
 namespace UnitTests.Models
 {
@@ -12,8 +13,10 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
+            var result = new ReportViewModel();
 
             // Assert
+            Assert.IsNotNull(result);
         }
 
         [TestMethod]
