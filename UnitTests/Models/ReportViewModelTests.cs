@@ -26,5 +26,16 @@ namespace UnitTests.Models
             // Assert
         }
 
+        [TestMethod]
+        public void ReportViewModel_NumberOfUsers_Set_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+
+            // Assert
+        }
+
+
     }
 }
