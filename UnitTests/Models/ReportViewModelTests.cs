@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using HW1c.Models;
+using System.Collections.Generic;
 
 namespace UnitTests.Models
 {
@@ -63,10 +64,18 @@ namespace UnitTests.Models
         public void ReportViewModel_LogViewModel_Set_Default_Should_Pass()
         {
             // Arrange
+            var myTest = new ReportViewModel();
+            var myViewModel = new LogViewModel();
+            var myModelList = new List<LogModel>();
+            myModelList.Add(new LogModel { PhoneID = "Phone" });
+            myViewModel.LogList = myModelList;
 
             // Act
+            myTest.LogViewModel = myViewModel;
+            var result = myTest.LogViewModel.LogList;
 
             // Assert
+            Assert.AreEqual("Phone", result[0].PhoneID);
         }
     }
 }
