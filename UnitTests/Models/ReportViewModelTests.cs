@@ -50,10 +50,13 @@ namespace UnitTests.Models
         public void ReportViewModel_LogViewModel_Get_Default_Should_Pass()
         {
             // Arrange
+            var myTest = new ReportViewModel();
 
             // Act
+            var result = myTest.LogViewModel;
 
             // Assert
+            Assert.IsNotNull(result);
         }
 
         [TestMethod]
