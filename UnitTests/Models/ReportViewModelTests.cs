@@ -36,6 +36,16 @@ namespace UnitTests.Models
             // Assert
         }
 
+        [TestMethod]
+        public void ReportViewModel_LogViewModel_Get_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+
+            // Assert
+        }
+
 
     }
 }
