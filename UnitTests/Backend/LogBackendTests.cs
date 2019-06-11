@@ -55,8 +55,10 @@ namespace UnitTests.Backend
             // Arange
 
             // Act
+            var result = LogBackend.Instance.Create(null);
 
-            // Assert            
+            // Assert
+            Assert.AreEqual(null, result);
         }
 
         [TestMethod]
