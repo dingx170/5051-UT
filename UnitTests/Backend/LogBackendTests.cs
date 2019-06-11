@@ -43,15 +43,20 @@ namespace UnitTests.Backend
             // Arange
             var myModel = new LogModel
             {
-                ID = "bogus"
+                ID = "bogus",
+                PhoneID = "phone"
             };
+            var ID = myModel.ID;
+            var PhoneID = myModel.PhoneID;
+
             var myData = LogBackend.Instance.Create(myModel);
 
             // Act
             var result = LogBackend.Instance.Read("bogus");
 
             // Assert
-            Assert.AreEqual(myModel, result);
+            Assert.AreEqual(ID, result.ID);
+            Assert.AreEqual(PhoneID, result.PhoneID);
         }
 
         [TestMethod]
