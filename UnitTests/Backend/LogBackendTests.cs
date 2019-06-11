@@ -69,12 +69,13 @@ namespace UnitTests.Backend
             {
                 ID = "bogus"
             };
+            var myData = LogBackend.Instance.Create(myModel);
 
             // Act
-            var result = LogBackend.Instance.Create(myModel);
+            var result = LogBackend.Instance.Read("bogus");
 
             // Assert
-            Assert.AreEqual("bogus", result.ID);
+            Assert.AreEqual(myModel, result);
         }
 
         [TestMethod]
