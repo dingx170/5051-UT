@@ -79,23 +79,21 @@ namespace UnitTests.Backend
         }
 
         [TestMethod]
-        public void LogBackend_Read_InValid_Item_Should_Pass()
+        public void LogBackend_Update_Valid_Item_Should_Pass()
         {
             // Arange
-
+            var myModel = new LogModel
+            {
+                ID = "bogus"
+            };
+            var myData = LogBackend.Instance.Create(myModel);
+            myModel.ID = "updated";
+            
             // Act
+            var result = LogBackend.Instance.Read("updated");
 
             // Assert
-        }
-
-        [TestMethod]
-        public void LogBackend_Update_First_Item_Should_Pass()
-        {
-            // Arange
-
-            // Act
-
-            // Assert
+            Assert.AreEqual(myModel, result);
         }
 
         [TestMethod]
