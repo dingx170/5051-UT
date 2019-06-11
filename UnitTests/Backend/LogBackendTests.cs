@@ -40,10 +40,13 @@ namespace UnitTests.Backend
         public void LogBackend_Create_Valid_Item_Should_Pass()
         {
             // Arange
+            var myModel = new LogModel();
 
             // Act
+            var result = LogBackend.Instance.Create(myModel);
 
             // Assert
+            Assert.IsNotNull(result);
         }
 
         [TestMethod]
@@ -53,7 +56,7 @@ namespace UnitTests.Backend
 
             // Act
 
-            // Assert
+            // Assert            
         }
 
         [TestMethod]
