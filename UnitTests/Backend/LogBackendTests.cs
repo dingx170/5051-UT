@@ -11,30 +11,6 @@ namespace UnitTests.Backend
     [TestClass]
     public class LogBackendTests
     {
-        /*
-        [TestMethod]
-        public void LogBackend_Default_Instantiate_Should_Pass()
-        {
-            // Arange
-
-            // Act
-            var result = new LogBackend();
-
-            // Assert
-            Assert.IsNotNull(result);
-        }
-         */
-        [TestMethod]
-        public void LogBackend_Index_Default_Should_Pass()
-        {
-            // Arange
-
-            // Act
-            var result = LogBackend.Instance.Index();
-
-            // Assert
-            Assert.IsNotNull(result);
-        }
 
         [TestMethod]
         public void LogBackend_Create_Valid_Item_Should_Pass()
@@ -82,20 +58,24 @@ namespace UnitTests.Backend
         public void LogBackend_Update_Valid_Item_Should_Pass()
         {
             // Arange
-            var myModel = new LogModel
-            {
-                ID = "bogus"
+            var oldModel = new LogModel() {
+                PhoneID = "oldID"
             };
-            var myData = LogBackend.Instance.Create(myModel);
-            myModel.ID = "updated";
-            
+            var oldPhoneID = oldModel.PhoneID;
+
+            var myData = LogBackend.Instance.Create(oldModel);
+
+            oldModel.PhoneID = "newID";
+
             // Act
-            var result = LogBackend.Instance.Read("updated");
+            var result = LogBackend.Instance.Update(oldModel);
+            var newItem = LogBackend.Instance.Read(oldModel.ID);
 
             // Assert
-            Assert.AreEqual(myModel, result);
+            Assert.AreNotEqual(oldPhoneID, newItem.PhoneID);
+            Assert.AreEqual("newID", newItem.PhoneID);
         }
-
+/*
         [TestMethod]
         public void LogBackend_Delete_Valid_Item_Should_Pass()
         {
@@ -112,7 +92,7 @@ namespace UnitTests.Backend
             // Assert
             Assert.IsNull(result);
         }
-
+*/
         [TestMethod]
         public void LogBackend_Delete_InValid_Item_Should_Pass()
         {
@@ -128,5 +108,18 @@ namespace UnitTests.Backend
             // Assert
             Assert.AreEqual(false, myData);
         }
+
+        [TestMethod]
+        public void LogBackend_Index_Default_Should_Pass()
+        {
+            // Arange
+
+            // Act
+            var result = LogBackend.Instance.Index();
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
     }
 }
