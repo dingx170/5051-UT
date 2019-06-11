@@ -114,13 +114,19 @@ namespace UnitTests.Backend
         }
 
         [TestMethod]
-        public void LogBackend_Delete_InValid_Bogus_Item_Should_Pass()
+        public void LogBackend_Delete_InValid_Item_Should_Pass()
         {
             // Arange
+            var myModel = new LogModel
+            {
+                ID = "bogus"
+            };
 
             // Act
+            var myData = LogBackend.Instance.Delete("invalid");
 
             // Assert
+            Assert.AreEqual(false, myData);
         }
     }
 }
