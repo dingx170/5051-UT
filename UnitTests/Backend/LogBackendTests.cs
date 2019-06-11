@@ -63,8 +63,7 @@ namespace UnitTests.Backend
         public void LogBackend_Update_Valid_Item_Should_Pass()
         {
             // Arange
-            var oldModel = new LogModel
-            {
+            var oldModel = new LogModel() {
                 PhoneID = "oldID"
             };
             var oldPhoneID = oldModel.PhoneID;
@@ -81,25 +80,24 @@ namespace UnitTests.Backend
             Assert.AreNotEqual(oldPhoneID, newItem.PhoneID);
             Assert.AreEqual("newID", newItem.PhoneID);
         }
-
+/*
         [TestMethod]
         public void LogBackend_Delete_Valid_Item_Should_Pass()
         {
             // Arange
-            var oldModel = new LogModel
+            var myModel = new LogModel
             {
-                PhoneID = "oldID"
+                ID = "bogus"
             };
-            var myData = LogBackend.Instance.Create(oldModel);
 
             // Act
-            var result = LogBackend.Instance.Delete(oldModel.ID);
-            var deleted = LogBackend.Instance.Read(oldModel.ID);
+            var myData = LogBackend.Instance.Delete("bogus");
+            var result = LogBackend.Instance.Read("bogus");
 
             // Assert
-            Assert.IsNull(deleted);
+            Assert.IsNull(result);
         }
-
+*/
         [TestMethod]
         public void LogBackend_Delete_InValid_Item_Should_Pass()
         {
