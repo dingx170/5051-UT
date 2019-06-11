@@ -65,10 +65,16 @@ namespace UnitTests.Backend
         public void LogBackend_Read_Valid_Item_Should_Pass()
         {
             // Arange
+            var myModel = new LogModel
+            {
+                ID = "bogus"
+            };
 
             // Act
+            var result = LogBackend.Instance.Create(myModel);
 
             // Assert
+            Assert.AreEqual("bogus", result.ID);
         }
 
         [TestMethod]
