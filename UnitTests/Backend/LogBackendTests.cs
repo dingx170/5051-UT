@@ -97,23 +97,20 @@ namespace UnitTests.Backend
         }
 
         [TestMethod]
-        public void LogBackend_Update_InValid_Bogus_Item_Should_Pass()
+        public void LogBackend_Delete_Valid_Item_Should_Pass()
         {
             // Arange
+            var myModel = new LogModel
+            {
+                ID = "bogus"
+            };
 
             // Act
+            var myData = LogBackend.Instance.Delete("bogus");
+            var result = LogBackend.Instance.Read("bogus");
 
             // Assert
-        }
-
-        [TestMethod]
-        public void LogBackend_Delete_First_Item_Should_Pass()
-        {
-            // Arange
-
-            // Act
-
-            // Assert
+            Assert.IsNull(result);
         }
 
         [TestMethod]
